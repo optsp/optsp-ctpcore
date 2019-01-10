@@ -74,7 +74,7 @@ void PlatCtp::run()
         cmdQueue->pop(cmd);
 
         switch (cmd.Type) {
-        /* QuoteSpi Command */
+        /* Quote Command */
         case CMD_PLAT_QUOTE_REQ_USER_LOGIN:
             ret = quoteApi->ReqUserLogin(&cmd.ReqUserLogin, cmd.Id);
             APIRTN_ERROR(log, cmd.Id, ret, "Failed to login quote front server");
@@ -89,7 +89,7 @@ void PlatCtp::run()
             APIRTN_ERROR(log, cmd.Id, ret, "Failed to subscribe market data");
             break;
 
-        /* TradeSpi Command */
+        /* Trade Command */
         case CMD_PLAT_TRADE_REQ_AUTHENTICATE:
             ret = tradeApi->ReqAuthenticate(&cmd.ReqAuthenticate, cmd.Id);
             APIRTN_ERROR(log, cmd.Id, ret, "Failed to do trade authenticate");
@@ -123,7 +123,7 @@ void PlatCtp::run()
             APIRTN_ERROR(log, cmd.Id, ret, "Failed to do query instrument");
             break;
 
-        /* StGroup Command */
+
 
         default:
             ret = 0;

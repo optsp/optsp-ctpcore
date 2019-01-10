@@ -10,8 +10,14 @@
 
 
 
-#define CB_QUOTE_TYPE_START         0x00000000
-#define CB_TRADE_TYPE_START         0x10000000
+#define CB_QUOTE_TYPE_BEGIN                     0x00000000
+#define CB_QUOTE_TYPE_END                       0x0fffffff
+#define CB_TRADE_TYPE_BEGIN                     0x10000000
+#define CB_TRADE_TYPE_END                       0x1fffffff
+#define CMD_PLAT_QUOTE_TYPE_BEGIN               0x20000000
+#define CMD_PLAT_QUOTE_TYPE_END                 0x2fffffff
+#define CMD_PLAT_TRADE_TYPE_BEGIN               0x30000000
+#define CMD_PLAT_TRADE_TYPE_END                 0x3fffffff
 
 /********** Quote回调类型 **********/
 #define CB_QUOTE_FRONT_CONNECTED                                    0x00000001  ///客户端与交易后台建立起通信连接
