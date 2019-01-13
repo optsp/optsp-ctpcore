@@ -84,6 +84,7 @@ typedef struct CbQuoteRtnForQuoteRspField {
 
 
 typedef struct CbQuoteField {
+    uint64_t Type;
     union {
         CbQuoteFrontConnectedField          FrontConnected;
         CbQuoteFrontDisconnectedField       FrontDisconnected;

@@ -41,6 +41,7 @@ void QuoteSpi::OnRspUserLogin(CThostFtdcRspUserLoginField *pRspUserLogin, CThost
         data->SessionID = pRspUserLogin->SessionID;
         data->MaxOrderRef = arch_Str2Int64(pRspUserLogin->MaxOrderRef);
         spiData->IsLast = bIsLast;
+        spiData->Type = CB_QUOTE_RSP_USER_LOGIN;
         (*quote_callback)(CB_QUOTE_RSP_USER_LOGIN, spiData);
         log << "Login on Quote Front Server, " << pRspUserLogin->TradingDay << ", " << pRspUserLogin->LoginTime;
         LOGINFO(logger, log);
@@ -59,6 +60,7 @@ void QuoteSpi::OnRspSubMarketData(CThostFtdcSpecificInstrumentField *pSpecificIn
         CbQuoteRspSubMarketDataField *data = &spiData->RspSubMarketData;
         arch_Strcpy(data->InstrumentID, pSpecificInstrument->InstrumentID, sizeof(data->InstrumentID));
         spiData->IsLast = bIsLast;
+        spiData->Type = CB_QUOTE_RSP_SUB_MARKET_DATA;
         (*quote_callback)(CB_QUOTE_RSP_SUB_MARKET_DATA, spiData);
         log << "Success to Subscribe: " << pSpecificInstrument->InstrumentID;
         LOGDBG(logger, log);
@@ -121,6 +123,8 @@ void QuoteSpi::OnRtnDepthMarketData(CThostFtdcDepthMarketDataField *pDepthMarket
     handicap->OpenInterest = (long)pDepthMarketData->OpenInterest;
     handicap->Turnover = pDepthMarketData->Turnover;
     handicap->AveragePrice = pDepthMarketData->AveragePrice;
+    spiData->Type = CB_QUOTE_RTN_DEPTH_MARKET_DATA;
+    spiData->IsLast = true;
     (*quote_callback)(CB_QUOTE_RTN_DEPTH_MARKET_DATA, spiData);
 }
 
@@ -149,6 +153,7 @@ void QuoteSpi::OnRspUserLogout(CThostFtdcUserLogoutField *pUserLogout, CThostFtd
         arch_Strcpy(data->BrokerID, pUserLogout->BrokerID, sizeof(data->BrokerID));
         arch_Strcpy(data->UserID, pUserLogout->UserID, sizeof(data->UserID));
         spiData->IsLast = bIsLast;
+        spiData->Type = CB_QUOTE_RSP_USER_LOGOUT;
         (*quote_callback)(CB_QUOTE_RSP_USER_LOGOUT, spiData);
         log << "Success to Logout";
         LOGINFO(logger, log);
@@ -167,6 +172,7 @@ void QuoteSpi::OnRspUnSubMarketData(CThostFtdcSpecificInstrumentField *pSpecific
         CbQuoteRspUnsubMarketDataField *data = &spiData->RspUnsubMarketData;
         arch_Strcpy(data->InstrumentID, pSpecificInstrument->InstrumentID, sizeof(data->InstrumentID));
         spiData->IsLast = bIsLast;
+        spiData->Type = CB_QUOTE_RSP_UNSUB_MARKET_DATA;
         (*quote_callback)(CB_QUOTE_RSP_UNSUB_MARKET_DATA, spiData);
         log << "Success to Unsubscribe: " << pSpecificInstrument->InstrumentID;
         LOGDBG(logger, log);

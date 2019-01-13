@@ -806,6 +806,7 @@ typedef struct CbTradeRtnErrorConditionalOrderField {
 
 
 typedef struct CbTradeField {
+    uint64_t Type;
     union {
         CbTradeFrontConnectedField                          FrontConnected;
         CbTradeFrontDisconnectedField                       FrontDisconnected;

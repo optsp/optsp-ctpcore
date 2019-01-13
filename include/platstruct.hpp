@@ -100,7 +100,7 @@ typedef struct PlatCmdReqOrderActionField {
 */
 
 typedef struct PlatCmdField {
-    int Type;           ///命令类型
+    uint64_t Type;           ///命令类型
     int Id;             ///命令的ID；来自lower层的命令的ID为负，分别为-1和-2
     int Ret;            ///执行API的返回值
      union {
