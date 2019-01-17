@@ -38,6 +38,15 @@
     <ClCompile Include="platctp\tradespi.cpp">
       <Filter>platctp</Filter>
     </ClCompile>
+    <ClCompile Include="stgroup\st-dual-thrust.cpp">
+      <Filter>stgroup</Filter>
+    </ClCompile>
+    <ClCompile Include="stgroup\st-hans123.cpp">
+      <Filter>stgroup</Filter>
+    </ClCompile>
+    <ClCompile Include="stgroup\st-server.cpp">
+      <Filter>stgroup</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="master.h" />
@@ -85,6 +94,18 @@
     </ClInclude>
     <ClInclude Include="include\ctpapi.hpp">
       <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="stgroup\st-dual-thrust.h">
+      <Filter>stgroup</Filter>
+    </ClInclude>
+    <ClInclude Include="stgroup\st-hans123.h">
+      <Filter>stgroup</Filter>
+    </ClInclude>
+    <ClInclude Include="include\stbase.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="stgroup\st-server.h">
+      <Filter>stgroup</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

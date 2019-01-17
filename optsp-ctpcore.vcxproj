@@ -19,6 +19,9 @@
     <ClCompile Include="platctp\platctp.cpp" />
     <ClCompile Include="platctp\quotespi.cpp" />
     <ClCompile Include="platctp\tradespi.cpp" />
+    <ClCompile Include="stgroup\st-dual-thrust.cpp" />
+    <ClCompile Include="stgroup\st-hans123.cpp" />
+    <ClCompile Include="stgroup\st-server.cpp" />
     <ClCompile Include="stgroup\stgroup.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -33,11 +36,15 @@
     <ClInclude Include="include\platstruct.hpp" />
     <ClInclude Include="include\quotestruct.hpp" />
     <ClInclude Include="include\statestruct.hpp" />
+    <ClInclude Include="include\stbase.hpp" />
     <ClInclude Include="include\stgroup.h" />
     <ClInclude Include="include\tradestruct.hpp" />
     <ClInclude Include="master.h" />
     <ClInclude Include="platctp\quotespi.h" />
     <ClInclude Include="platctp\tradespi.h" />
+    <ClInclude Include="stgroup\st-dual-thrust.h" />
+    <ClInclude Include="stgroup\st-hans123.h" />
+    <ClInclude Include="stgroup\st-server.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
