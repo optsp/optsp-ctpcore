@@ -4,6 +4,37 @@
 #include <atomic>
 #include <mutex>
 
+
+typedef struct CbQuoteRtnDepthMarketDataField {
+    char                TradingDay[9];          ///交易日
+    char                InstrumentID[31];       ///合约编码，p.s. 字节未对齐} HandicapField;
+    char                ExchangeID[9];          ///交易所代码
+    char                ExchangeInstID[31];     ///合约在交易所的代码
+    double              PreClosePrice;          ///昨收盘
+    double              PreSettlementPrice;     ///昨结算
+    uint64_t            PreOpenInterest;        ///昨持仓
+    double              OpenPrice;              ///今开盘
+    double              HighestPrice;           ///最高价
+    double              LowestPrice;            ///最低价
+    double              ClosePrice;             ///今收盘
+    double              SettlementPrice;        ///今结算
+    double              UpperLimitPrice;        ///涨停板
+    double              LowerLimitPrice;        ///跌停板
+    double              PreDelta;               ///昨虚实度
+    double              CurrDelta;              ///今虚实度
+    double              BidPrice[5];            ///申买价1-5
+    uint64_t            BidVolume[5];           ///申买量1-5
+    double              AskPrice[5];            ///申卖价1-5
+    uint64_t            AskVolume[5];           ///申卖量1-5
+    uint64_t            TimeStamp;              ///时间戳, "yyyy-MM-dd hh:mm:ss.zzz"
+    double              LastPrice;              ///时间切片的最新价格
+    uint64_t            Volume;                 ///成交量
+    double              Turnover;               ///成交额
+    uint64_t            OpenInterest;           ///持仓量
+    double              AveragePrice;           ///当日均价
+} CbQuoteRtnDepthMarketDataField;
+
+
 typedef struct StContext {
     char    InstrumentID[32];       ///合约编号
     double  LastPrice;              ///最新价
